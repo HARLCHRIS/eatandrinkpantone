@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>EAT &amp; DRINK FESTIVAL 2027 | Cotonou City Food Festival</title>
+  <!-- Tailwind CSS v3 with Plugins -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#070f1a',
+              navy: '#0d1b2a',
+              card: '#112236',
+              lime: '#70e000',
+              yellow: '#ffd000',
+              orange: '#ff6700',
+              pink: '#ff0054',
+              cyan: '#00b4d8'
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
+            display: ['Outfit', 'Impact', 'Arial Black', 'sans-serif']
+          },
+          boxShadow: {
+            neonYellow: '0 0 25px rgba(255, 208, 0, 0.45)',
+            neonLime: '0 0 25px rgba(112, 224, 0, 0.5)',
+            neonPink: '0 0 30px rgba(255, 0, 84, 0.45)',
+            sticker: '4px 8px 0px #000'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts: Inter & Outfit -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&amp;display=swap" rel="stylesheet"/>
+  <!-- Custom Styles: Marquee, Texture & Polaroids -->
+  <style data-purpose="typography">
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #070f1a;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+    .font-festive {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+  </style>
+  <style data-purpose="animations">
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marquee 22s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+    .polaroid-shadow {
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255,255,255,0.08);
+    }
+    .sticker-badge {
+      clip-path: polygon(0 4%, 100% 0%, 96% 96%, 4% 100%);
+    }
+    .grain-overlay {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-slate-100 selection:bg-brand-yellow selection:text-black grain-overlay">
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
+

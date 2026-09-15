@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EAT &amp; DRINK FESTIVAL 2027 | Cotonou City Food Festival</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#070f1a',
+              navy: '#0d1b2a',
+              card: '#112236',
+              lime: '#70e000',
+              yellow: '#ffd000',
+              orange: '#ff6700',
+              pink: '#ff0054',
+              cyan: '#00b4d8'
+            }
+          },
+          fontFamily: {
+            sans: ['Cabinet Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+            display: ['Impact', 'Arial Black', 'sans-serif']
+          },
+          boxShadow: {
+            neonYellow: '0 0 25px rgba(255, 208, 0, 0.45)',
+            neonLime: '0 0 25px rgba(112, 224, 0, 0.5)',
+            neonPink: '0 0 30px rgba(255, 0, 84, 0.45)',
+            sticker: '4px 8px 0px #000'
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Fonts: Inter & Outfit -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Custom Styles: Marquee, Texture & Polaroids -->
+<style data-purpose="typography">
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #070f1a;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+    .font-festive {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+  </style>
+<style data-purpose="animations">
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marquee 22s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+    .polaroid-shadow {
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255,255,255,0.08);
+    }
+    .sticker-badge {
+      clip-path: polygon(0 4%, 100% 0%, 96% 96%, 4% 100%);
+    }
+    .grain-overlay {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-slate-100 selection:bg-brand-yellow selection:text-black grain-overlay">
+<!-- BEGIN: TopAnnouncementBar -->
+<!-- Bandeau supérieur d'alerte festive façon ticket officiel -->
+<div class="bg-brand-yellow text-brand-dark font-festive font-black text-xs md:text-sm tracking-wider py-2 px-4 text-center border-b-2 border-black flex items-center justify-center gap-3" data-purpose="top-alert">
+<span class="inline-block px-2 py-0.5 bg-black text-brand-yellow text-[11px] rounded uppercase font-bold tracking-widest">Officiel</span>
+<span>🚨 8ÈME ÉDITION • COTONOU CITY FOOD FESTIVAL • 26 AU 31 JANVIER 2027</span>
+<span class="hidden md:inline font-bold">| INFOLINE WHATSAPP : +229 01 48 75 95 96</span>
+</div>
+<!-- END: TopAnnouncementBar -->
+<!-- BEGIN: MainHeader -->
+<!-- Navigation bar avec logo officiel et call-to-actions -->
+<header class="sticky top-0 z-50 backdrop-blur-md bg-brand-navy/90 border-b border-white/10 transition-all duration-300">
+<nav aria-label="Navigation principale" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Festival Brand Logo -->
+<a class="flex items-center gap-3 group" href="#hero" title="Retour à l'accueil">
+<div class="h-14 w-auto overflow-hidden rounded-md p-1 bg-white/5 border border-white/10 group-hover:border-brand-yellow transition-colors">
+<img alt="Eat &amp; Drink Festival - Cotonou City Food Festival 2027 Logo" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX-e0eTltdS6IXn2rjkvUUeNOTLxubbf5g5ujEMSMNtWbu30SCRT89y4vNKS1CRMOtQHYMOtihd0v92UrDutZGXsm0_8xM6eUJ96qqMXPeQ6tKVD6kKRXYyAyF644UXlXFs1sIXr8N0L7tIHAINhIxojHhw5zg3WGxb4k_L4apF66Bwh-fsJYMfwXScnyyGotvkCSxAcDVmyL0T_PJ8VOweUfIenRLwb98DvOsiFOU1TsMYW2sF6QlqKAM4ItUJGDsLF0"/>
+</div>
+</a>
+<!-- Desktop Navigation Menu -->
+<div class="hidden lg:flex items-center gap-8 font-festive text-sm tracking-wider text-slate-200">
+<a class="hover:text-brand-yellow transition-colors flex items-center gap-1.5" href="#festivites">
+<span class="text-brand-lime">✦</span> L'Ambiance
+        </a>
+<a class="hover:text-brand-yellow transition-colors flex items-center gap-1.5" href="#challenges">
+<span class="text-brand-pink">★</span> Startups &amp; Food Lover
+        </a>
+<a class="hover:text-brand-yellow transition-colors flex items-center gap-1.5" href="#food-court">
+<span class="text-brand-yellow">🍗</span> Food Court
+        </a>
+<a class="hover:text-brand-yellow transition-colors flex items-center gap-1.5" href="#billetterie">
+<span class="text-brand-cyan">🎟️</span> Billetterie
+        </a>
+<a class="hover:text-brand-yellow transition-colors" href="#contact">Contact</a>
+</div>
+<!-- Action Buttons (WhatsApp direct & Pass) -->
+<div class="flex items-center gap-3">
+<a class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-festive font-black tracking-wider bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/20 transition-all" href="https://wa.me/2290148759596" rel="noopener noreferrer" target="_blank">
+<svg class="w-4 h-4 fill-emerald-400" viewbox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"></path></svg>
+          WhatsApp Info
+        </a>
+<a class="inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-festive font-black tracking-wider bg-brand-yellow text-brand-dark rounded-full shadow-neonYellow hover:bg-brand-lime transition-all transform hover:-translate-y-0.5 active:translate-y-0" href="#billetterie">
+<span>RÉSERVER MON PASS</span>
+<span class="text-base leading-none">➜</span>
+</a>
+</div>
+</nav>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<!-- Hero banner massif avec mascotte Toucan 8ème édition et compte à rebours -->
+<section class="relative overflow-hidden pt-6 pb-20 lg:pt-10 lg:pb-28" id="hero">
+<!-- Ambiance background glows -->
+<div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-cyan/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-brand-pink/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<!-- Grand Banner Visuel Intégré -->
+<div class="relative rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl bg-brand-navy mb-12 group">
+<img alt="Bannière Officielle EAT &amp; DRINK FESTIVAL 8ème Édition Cotonou City 2027" class="w-full h-[320px] sm:h-[440px] lg:h-[520px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoTr0cLyoKnd9pvUr5FwVnhFhPMYS0RFxxtx1n3jaGAii72gNdsKwLUYFJK9eKkUEfgO2BbDcoLhmhYGJfMWyeCVNu-VMLzoGdC00Wd0zVdhKJDTIQVXmVz_p_lkuitUcKydDCS-PIpCyN6jErhkOy9JvMWplP4NX9W5Cpn9aFUwub-b51AmuaD8eJw6O3Xl2vjBvEUwqSLal6Bk0XOjq39B_REQ4Q-ytEgi1FDTtWeH1R-V0bXrAtyhqHfFG199A0mVg"/>
+<!-- Overlay dégradé subtil pour lisibilité -->
+<div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-navy/30 to-transparent"></div>
+<!-- Floating Sticker Badge Hero (Inspiré de IMAGE_1 & Toucan) -->
+<div class="absolute top-6 left-6 sm:top-10 sm:left-10 bg-brand-yellow text-brand-dark p-3 sm:p-5 rounded-2xl shadow-sticker -rotate-6 border-2 border-black max-w-[240px] hidden sm:block">
+<span class="block text-[10px] font-black uppercase tracking-widest text-red-600 bg-red-100 px-2 py-0.5 rounded w-max mb-1">Rendez-vous Incontournable</span>
+<p class="font-festive text-lg sm:text-2xl leading-none">6 JOURS DE FESTIVAL NON-STOP !</p>
+<p class="text-xs font-bold mt-1 text-slate-800">Cotonou vibrant au rythme des saveurs</p>
+</div>
+<!-- Toucan Save The Date Badge Mobile/Desktop Overlay -->
+<div class="absolute bottom-6 right-6 sm:bottom-8 sm:right-10 flex items-center gap-4 bg-black/80 backdrop-blur-md p-3 sm:p-4 rounded-2xl border border-white/20 shadow-2xl">
+<img alt="Mascotte Toucan Save The Date 26-31 Janvier" class="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTrJ-IHOinIhv-JZk0dpCzbLFtg4hVGOA9YlLbVjnwrr5gJCW91GnonL1Rj7f2cMZmoqACc3DcyYKlcsa4-r8z2oE_LQkScHlj-9HcGxcEO5tv6HAJUiPulhm9PQyDbnFY8Wr5dpPSAvqoqmX4kyAQMB90g-kxl6P6wYX2w5DdzMQ1ovterg7qvIbuYRB2Lx50K6gmlxQboAmSMF_ZZLkTPfSzAtZpGSxPXIKSqKiAcgfRbZmbTJyU3cy87k_SJajHPBU"/>
+<div>
+<div class="text-[11px] font-festive text-brand-lime font-bold tracking-widest uppercase">Édition Spéciale 8</div>
+<div class="font-festive text-xl sm:text-2xl text-white leading-tight">26 &gt; 31 JANVIER 2027</div>
+<div class="text-xs text-slate-300">Cotonou City • Bénin</div>
+</div>
+</div>
+</div>
+<!-- Hero Pitch & Interactive Quick Actions -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left Headline (7 cols) -->
+<div class="lg:col-span-7 space-y-5 text-left">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-lime/10 border border-brand-lime/40 text-brand-lime font-festive text-xs tracking-widest uppercase">
+<span>✨</span> LE PLUS GRAND FESTIVAL CULINAIRE DE COTONOU
+          </div>
+<h1 class="font-festive text-4xl sm:text-6xl xl:text-7xl font-black text-white leading-[1.05] tracking-tight">
+            GOOD FOOD, <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow via-brand-orange to-brand-pink">GOOD PEOPLE,</span> <br/>
+            GOOD VIBES.
+          </h1>
+<p class="text-slate-300 text-base sm:text-lg max-w-xl leading-relaxed">
+            Plongez au cœur de 6 jours d'effervescence gustative, de musique live, de street culture et de compétitions culinaires électrisantes. Rejoignez plus de 50 000 foodies pour célébrer l'art de manger et faire la fête ensemble !
+          </p>
+<div class="pt-2 flex flex-wrap gap-4 items-center">
+<a class="px-8 py-4 bg-brand-yellow hover:bg-brand-lime text-black font-festive font-black text-base sm:text-lg tracking-wider rounded-xl shadow-neonYellow hover:shadow-neonLime transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-3" href="#billetterie">
+<span>ACHETER MON TICKET DÈS 2 000 FCFA</span>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="px-6 py-4 bg-white/5 hover:bg-white/10 text-white font-festive font-bold text-sm tracking-wider rounded-xl border border-white/15 transition-all" href="#festivites">
+              DÉCOUVRIR LE PROGRAMME ↓
+            </a>
+</div>
+</div>
+<!-- Right: Real-time Countdown Box (5 cols) -->
+<div class="lg:col-span-5 bg-gradient-to-br from-brand-card to-brand-navy p-6 sm:p-8 rounded-3xl border-2 border-brand-yellow/30 shadow-2xl relative">
+<!-- Stamp "J-XX" -->
+<div class="absolute -top-4 -right-3 bg-brand-pink text-white font-festive text-xs uppercase px-4 py-1.5 rounded-full shadow-lg rotate-6 tracking-widest">
+            Save The Date
+          </div>
+<h3 class="font-festive text-sm uppercase tracking-widest text-slate-400 mb-1">Coup d'envoi dans</h3>
+<h2 class="font-festive text-2xl text-white font-black mb-6">Janvier 2027 à Cotonou</h2>
+<!-- Countdown Digits Grid -->
+<div class="grid grid-cols-4 gap-2.5 sm:gap-3 text-center mb-6" data-purpose="countdown-clock">
+<div class="bg-black/50 p-3 sm:p-4 rounded-xl border border-white/10">
+<span class="block font-festive text-2xl sm:text-4xl text-brand-yellow font-black" id="timer-days">280</span>
+<span class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider font-bold">Jours</span>
+</div>
+<div class="bg-black/50 p-3 sm:p-4 rounded-xl border border-white/10">
+<span class="block font-festive text-2xl sm:text-4xl text-brand-lime font-black" id="timer-hours">14</span>
+<span class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider font-bold">Heures</span>
+</div>
+<div class="bg-black/50 p-3 sm:p-4 rounded-xl border border-white/10">
+<span class="block font-festive text-2xl sm:text-4xl text-brand-cyan font-black" id="timer-minutes">36</span>
+<span class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider font-bold">Minutes</span>
+</div>
+<div class="bg-black/50 p-3 sm:p-4 rounded-xl border border-white/10">
+<span class="block font-festive text-2xl sm:text-4xl text-brand-pink font-black" id="timer-seconds">42</span>
+<span class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider font-bold">Sec</span>
+</div>
+</div>
+<!-- Festival Highlights Checklist -->
+<ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-white/10 pt-4">
+<li class="flex items-center gap-2">
+<span class="text-brand-lime font-bold">✓</span> +120 Stands de Food &amp; Mixologie
+            </li>
+<li class="flex items-center gap-2">
+<span class="text-brand-lime font-bold">✓</span> 2 Scènes Concerts &amp; DJ Sets en plein air
+            </li>
+<li class="flex items-center gap-2">
+<span class="text-brand-lime font-bold">✓</span> Grands Défis "Food Lover" &amp; "Startups Challenge"
+            </li>
+</ul>
+<div class="mt-6 p-3 bg-brand-yellow/10 rounded-xl border border-brand-yellow/30 flex items-center justify-between">
+<span class="text-xs font-bold text-brand-yellow uppercase tracking-wider">Infoline &amp; Partenariats</span>
+<span class="text-xs font-festive text-white font-bold">+229 01 95 46 46 94</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: TickerTapeSection -->
+<!-- Ruban festif façon avertissement/ruban jaune vu sur IMAGE_1 -->
+<section class="bg-brand-yellow py-3 border-y-4 border-black overflow-hidden shadow-neonYellow transform -rotate-1 relative z-20">
+<div class="animate-marquee whitespace-nowrap text-brand-dark font-festive text-base sm:text-xl font-black tracking-widest flex items-center">
+<span class="mx-4">🔥 SAVE THE DATE</span>
+<span class="mx-2">•</span>
+<span class="mx-4">26 &gt; 31 JANVIER 2027</span>
+<span class="mx-2">•</span>
+<span class="mx-4">COTONOU CITY FOOD FESTIVAL</span>
+<span class="mx-2">•</span>
+<span class="mx-4">GOOD FOOD, GOOD PEOPLE, GOOD VIBES</span>
+<span class="mx-2">•</span>
+<span class="mx-4">120+ RESTAURANTS &amp; CHEFS</span>
+<span class="mx-2">•</span>
+<span class="mx-4">COMPÉTITION FOOD LOVER</span>
+<span class="mx-2">•</span>
+<span class="mx-4">STARTUPS CHALLENGE</span>
+<span class="mx-2">•</span>
+<!-- Duplicate for seamless looping -->
+<span class="mx-4">🔥 SAVE THE DATE</span>
+<span class="mx-2">•</span>
+<span class="mx-4">26 &gt; 31 JANVIER 2027</span>
+<span class="mx-2">•</span>
+<span class="mx-4">COTONOU CITY FOOD FESTIVAL</span>
+<span class="mx-2">•</span>
+<span class="mx-4">GOOD FOOD, GOOD PEOPLE, GOOD VIBES</span>
+<span class="mx-2">•</span>
+</div>
+</section>
+<!-- END: TickerTapeSection -->
+<!-- BEGIN: ConceptExperienceSection -->
+<!-- Cartes inclinées style photos polaroïds & autocollants comme IMAGE_1 -->
+<section class="py-20 lg:py-28 relative" id="festivites">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Section Header -->
+<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-block bg-brand-pink text-white font-festive text-xs tracking-widest px-3 py-1 rounded-md uppercase -rotate-2 mb-3">
+          Ambiance Festival Unique
+        </div>
+<h2 class="font-festive text-3xl sm:text-5xl font-black text-white leading-tight">
+          UNE EXPÉRIENCE GOURMANDE &amp; NOCTURNE HORS DU COMMUN
+        </h2>
+<p class="text-slate-400 mt-4 text-sm sm:text-base">
+          L'esprit de fête inspiré des plus grands rassemblements conviviaux : de la bonne bouffe béninoise et internationale, du fun, du son et des souvenirs inoubliables.
+        </p>
+</div>
+<!-- Polaroid Cards Grid (Angle rotations & Party stickers) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-4">
+<!-- Polaroid Card 1 -->
+<div class="bg-white text-slate-900 p-4 rounded-2xl transform md:-rotate-3 hover:rotate-0 transition-all duration-300 polaroid-shadow border-4 border-slate-100 flex flex-col justify-between group">
+<div class="h-60 rounded-xl overflow-hidden bg-slate-900 relative">
+<img alt="Food Court et Grillades" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDY41tvDrUjnoogIqorFDDclbNijoj71CDMgqbCDA4Q8tClnB6fwHDU1G2S1cETeWdxMtW97oGNXNj3fAQXGFllbySIy2M5cKg0piF62klVSYS1G7SWugZ-sjV3iWIylqdH6VbROQ_aU6r6IGCV6iBKBW8aQXMY5BWTcy7kVpy-3hy2l6JbRC1jFt0rbZSsH_Ih9SjXXPdA4hlJSkLWPB3CZ1XbrvftGJDOKzF1lhsU-pM3rdAtVTyxg"/>
+<span class="absolute bottom-2 left-2 bg-brand-yellow font-festive text-[11px] font-black px-2 py-0.5 rounded text-black shadow">
+              100% SAVEURS
+            </span>
+</div>
+<div class="pt-4 text-left">
+<h3 class="font-festive text-xl font-black text-black">Grillades &amp; Terroirs</h3>
+<p class="text-xs text-slate-600 mt-1 font-medium">Agouti braisé, alloco doré, mouton grillé, tapas métissées et gastronomie béninoise sublimée.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
+<span>🍢 +70 Chefs &amp; Rôtisseurs</span>
+<span class="text-brand-orange">Délicieux</span>
+</div>
+</div>
+<!-- Polaroid Card 2 -->
+<div class="bg-white text-slate-900 p-4 rounded-2xl transform md:rotate-2 hover:rotate-0 transition-all duration-300 polaroid-shadow border-4 border-slate-100 flex flex-col justify-between group">
+<div class="h-60 rounded-xl overflow-hidden bg-slate-900 relative">
+<img alt="DJ sets et Concerts live" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqR_mRp2bw2c5yC1AWHbbQSgiYj6VHdxQ-T_biODlxOeqdjpwqZoOE-Gi3moj9wEXZ5msRje-oWg1DbbNdBvunnqJXAxFFb4h38Kyg7XzsHoFIhwp_dSEiH_SpbiVL94dYoiDAvBzISKuVNRkjh26y3q4DTrCLSIDj6dTl8VxIMUSQaDO04n55fHHWApYEVtTaCVpZWjloYcBgakkEBGbfD_pIJ42gEGvwcms7fPsEe22LKtMBjPjKrw"/>
+<span class="absolute bottom-2 left-2 bg-brand-pink font-festive text-[11px] font-black px-2 py-0.5 rounded text-white shadow">
+              LIVE &amp; SOUND
+            </span>
+</div>
+<div class="pt-4 text-left">
+<h3 class="font-festive text-xl font-black text-black">Concerts &amp; DJ Sets</h3>
+<p class="text-xs text-slate-600 mt-1 font-medium">Les meilleurs DJs afrobeats, amapiano et artistes live pour faire vibrer la nuit de Cotonou.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
+<span>🎧 18h &gt; 04h Matin</span>
+<span class="text-brand-pink">Non-stop</span>
+</div>
+</div>
+<!-- Polaroid Card 3 -->
+<div class="bg-white text-slate-900 p-4 rounded-2xl transform md:-rotate-2 hover:rotate-0 transition-all duration-300 polaroid-shadow border-4 border-slate-100 flex flex-col justify-between group">
+<div class="h-60 rounded-xl overflow-hidden bg-slate-900 relative">
+<img alt="Cocktails tropicaux et mixologie" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW5Nh99AnhpdceD_jzq8cnuZSDdSvKKH6ZA2VMfTV_WmMLefQPHY3P4hfdI2nUZeYH3D2VJCS1Lao52BCVC8u4k32G0kaKkOH6nn_GCjKXeLJPixNazMxYGY_NmD7ggYqQodOcy7IRRrOy6LDM_D5Pa73D4pBwVIOPcQoui100I9vr3aGZ70jO1cLha4vHBrghB-SrcQZC6P04fYfhkcUDQWu__l3BRPLJ8bpfQFrhvcJOFpxqgJIqvw"/>
+<span class="absolute bottom-2 left-2 bg-brand-cyan font-festive text-[11px] font-black px-2 py-0.5 rounded text-black shadow">
+              MIXOLOGIE CHIC
+            </span>
+</div>
+<div class="pt-4 text-left">
+<h3 class="font-festive text-xl font-black text-black">Cocktails &amp; Bars</h3>
+<p class="text-xs text-slate-600 mt-1 font-medium">Créations signature aux fruits tropicaux locaux, bières artisanales et mocktails rafraîchissants.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
+<span>🍹 15 Bars Thématiques</span>
+<span class="text-brand-cyan">Fraîcheur</span>
+</div>
+</div>
+<!-- Polaroid Card 4 -->
+<div class="bg-white text-slate-900 p-4 rounded-2xl transform md:rotate-3 hover:rotate-0 transition-all duration-300 polaroid-shadow border-4 border-slate-100 flex flex-col justify-between group">
+<div class="h-60 rounded-xl overflow-hidden bg-slate-900 relative">
+<img alt="Ambiance festive entre amis" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEzJ1JDzIa3P16htOKYXtRUeISwoOn4Mh9tAagrK22x9sWWQ695TS9lVOFivyJY31fxYyDYEjqsm-gmqGE_gDoHNmRTwOEcICcLv0G6jOnsi6GydaZL9imUxdnfx7XrgQs4ySQn7Oz2pK_thZYbuhkmoepjbR6QQB2rm_tjT7uSOAzwomgMgHHNLnCXzQ1z2aB-pZD1b9TlI1Cy-EiT8jTz8FJVy8d0Au3sjZ6v9IaITF6iIRhntAYAQ"/>
+<span class="absolute bottom-2 left-2 bg-brand-lime font-festive text-[11px] font-black px-2 py-0.5 rounded text-black shadow">
+              COMMUNAUTÉ
+            </span>
+</div>
+<div class="pt-4 text-left">
+<h3 class="font-festive text-xl font-black text-black">Games &amp; Fun Zones</h3>
+<p class="text-xs text-slate-600 mt-1 font-medium">Beer pong géant, blind tests musicaux, photobooths néon et espaces détente en famille.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
+<span>🏆 Lots &amp; Goodies</span>
+<span class="text-brand-lime">Ambiance 10/10</span>
+</div>
+</div>
+</div>
+<!-- Feature Key Badges bar inspired by Image 1's icons row -->
+<div class="mt-16 bg-brand-card/90 rounded-2xl p-6 border border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+<div class="space-y-1">
+<div class="text-3xl">👥</div>
+<div class="font-festive text-base text-white">50 000+ Visiteurs</div>
+<div class="text-xs text-slate-400">Pour 6 jours d'euphorie</div>
+</div>
+<div class="space-y-1">
+<div class="text-3xl">🍳</div>
+<div class="font-festive text-base text-white">120+ Stands Food</div>
+<div class="text-xs text-slate-400">Street-food &amp; gastronomie</div>
+</div>
+<div class="space-y-1">
+<div class="text-3xl">🎤</div>
+<div class="font-festive text-base text-white">30+ Artistes &amp; DJs</div>
+<div class="text-xs text-slate-400">Vibes jour et nuit</div>
+</div>
+<div class="space-y-1">
+<div class="text-3xl">🎁</div>
+<div class="font-festive text-base text-white">5 Millions FCFA</div>
+<div class="text-xs text-slate-400">De lots aux compétitions</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ConceptExperienceSection -->
+<!-- BEGIN: ChallengesSection -->
+<!-- Section Compétitions Culinaires : Startups Challenge & Food Lover -->
+<section class="py-20 bg-brand-navy/60 relative border-t border-b border-white/10" id="challenges">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<span class="px-3 py-1 bg-brand-orange text-white font-festive text-xs rounded uppercase tracking-wider font-bold">Compétitions Officielles</span>
+<h2 class="font-festive text-3xl sm:text-5xl font-black text-white mt-2">DÉFIS &amp; TOURNOIS 2027</h2>
+</div>
+<p class="text-slate-400 text-sm max-w-md mt-4 md:mt-0">
+          Les talents culinaires émergents et les plus grands passionnés de bouffe s'affrontent sur scène pour décrocher les trophées officiels !
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Challenge 1: EAT & DRINK STARTUPS CHALLENGE -->
+<div class="bg-gradient-to-br from-brand-card to-slate-900 rounded-3xl p-8 border-2 border-brand-yellow/40 hover:border-brand-yellow transition-all duration-300 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 right-0 bg-brand-yellow text-black font-festive text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase">
+            Tremplin Innovation Food
+          </div>
+<div>
+<!-- Official Startup Challenge Logo Container -->
+<div class="bg-white rounded-2xl p-6 mb-6 shadow-inner flex items-center justify-center h-36">
+<img alt="EAT &amp; DRINK STARTUPS CHALLENGE Logo Officiel" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_FyqItQejaEVsWmEY8hoSE2io-pQIPHIn7-seCUnedWLK3sevg66XXCpXuu8yZwrlGgANqvZFShPdXouR0wkEUPf2uQOAwXkoyYwNm404olt3uP5nkyofY-aRfiJDPU7ODHJ0DLe4VINamqSJbYWtYTzNSQfOf-9q7Xyxx9_qrgj3wHo7uw-jcjqAEHPwAT1z9iJemLvKNGzF77hXMlh8Fzq1TP2z-rCD3iT6fet3zSOroM0UhED9Cd2NauXY5myIs38"/>
+</div>
+<h3 class="font-festive text-2xl sm:text-3xl font-black text-white mb-2">
+              STARTUPS CHALLENGE 2027
+            </h3>
+<p class="text-slate-300 text-sm leading-relaxed mb-6">
+              Le grand concours d'innovation foodtech &amp; agrobusiness au Bénin. 10 startups sélectionnées pitcheront devant un jury d'experts, d'investisseurs et de grands chefs pour remporter financements et accompagnement premium.
+            </p>
+<!-- Key points -->
+<div class="grid grid-cols-2 gap-3 mb-6">
+<div class="bg-black/40 p-3 rounded-xl border border-white/10">
+<span class="block text-brand-yellow font-festive text-lg font-black">3 000 000 FCFA</span>
+<span class="text-[11px] text-slate-400">Prix du Grand Vainqueur</span>
+</div>
+<div class="bg-black/40 p-3 rounded-xl border border-white/10">
+<span class="block text-brand-lime font-festive text-lg font-black">Mentorat 1 An</span>
+<span class="text-[11px] text-slate-400">Par des pontes de la food</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-white/10">
+<span class="text-xs text-slate-400 font-bold">Candidatures jusqu'au 15 Janvier</span>
+<a class="px-5 py-2.5 bg-brand-yellow hover:bg-white text-black font-festive text-xs font-black rounded-xl transition-colors" href="https://wa.me/2290148759596?text=Bonjour,%20je%20souhaite%20inscrire%20ma%20startup%20au%20Eat%20and%20Drink%20Startups%20Challenge" rel="noopener noreferrer" target="_blank">
+              POSTULER AU CHALLENGE ↗
+            </a>
+</div>
+</div>
+<!-- Challenge 2: FOOD LOVER CONTEST -->
+<div class="bg-gradient-to-br from-brand-card to-slate-900 rounded-3xl p-8 border-2 border-brand-pink/40 hover:border-brand-pink transition-all duration-300 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 right-0 bg-brand-pink text-white font-festive text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase">
+            Compétition Gourmande Public
+          </div>
+<div>
+<!-- Official Food Lover Challenge Logo Container -->
+<div class="bg-white rounded-2xl p-6 mb-6 shadow-inner flex items-center justify-center h-36">
+<img alt="FOOD LOVER Challenge Logo" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF-dEVvGBaQcIcaQk1lU7HGrOpKuS3B2ZDJctYtWaY_wP6tnGRE7eF1-FizU8FeAE4EtWsr-CoL7xC25AnAxbSeYmgJq0vjkjdE1TlQWCevlPokGHDXJHEmwEQ_CcgykCC0dAlT4VCI-j5fgBc0pC4ItZi_ylI4qfRIujOQrRPoP8H-7O6yPPIx617nvkS-ocMi4ISLMZ9sJKr-81guMm7kCVKrhokeeXETxi5qMrwljsDednO_rNkDHi2vCnJ7nQaLYc"/>
+</div>
+<h3 class="font-festive text-2xl sm:text-3xl font-black text-white mb-2">
+              LE DÉFI DES "FOOD LOVERS"
+            </h3>
+<p class="text-slate-300 text-sm leading-relaxed mb-6">
+              Avez-vous le palais le plus aiguisé ou l'estomac le plus courageux de Cotonou ? Épreuves de dégustation à l'aveugle, spicy wings challenge piment béninois, rapidité et battles de critiques gastronomiques !
+            </p>
+<!-- Key points -->
+<div class="grid grid-cols-2 gap-3 mb-6">
+<div class="bg-black/40 p-3 rounded-xl border border-white/10">
+<span class="block text-brand-pink font-festive text-lg font-black">Couronne &amp; Trophée</span>
+<span class="text-[11px] text-slate-400">Titre Roi/Reine Food Lover</span>
+</div>
+<div class="bg-black/40 p-3 rounded-xl border border-white/10">
+<span class="block text-brand-cyan font-festive text-lg font-black">1 An de Resto</span>
+<span class="text-[11px] text-slate-400">Offert dans les tables phares</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-white/10">
+<span class="text-xs text-slate-400 font-bold">Inscription ouverte à tous</span>
+<a class="px-5 py-2.5 bg-brand-pink hover:bg-brand-yellow text-white hover:text-black font-festive text-xs font-black rounded-xl transition-colors" href="https://wa.me/2290195464694?text=Bonjour,%20je%20souhaite%20participer%20au%20Challenge%20Food%20Lover" rel="noopener noreferrer" target="_blank">
+              JE VEUX RELEVER LE DÉFI 🥄
+            </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ChallengesSection -->
+<!-- BEGIN: FoodCourtSection -->
+<!-- Menu dégustation, stands exposants et votes du public -->
+<section class="py-20 relative" id="food-court">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-14">
+<span class="text-brand-lime font-festive text-xs tracking-widest uppercase font-black">LE VILLAGE GASTRONOMIQUE</span>
+<h2 class="font-festive text-3xl sm:text-5xl font-black text-white mt-1">
+          AU MENU DU FESTIVAL
+        </h2>
+<p class="text-slate-400 text-sm mt-3">
+          Un tour d'horizon des spécialités servies en direct par les plus grands rôtisseurs, chefs de street-food et créateurs de douceurs.
+        </p>
+</div>
+<!-- Food categories cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Dish 1 -->
+<div class="bg-brand-card rounded-2xl overflow-hidden border border-white/10 hover:border-brand-yellow/50 transition-all duration-300">
+<img alt="Brochettes et Grillades géantes" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU_nuGUSK-2oox6TwXket8q3BaCTvQw-79WlkNSLvlXMNlvj1M7CfU05sUIcxmnRmZH_MyBs6dZv-bfltN5ujmvm_8wOvGO4mB4MQs-umzWGV577OF7Q5J6mzW5RC4DBCNd-3VdC2zpeUPON-PKDBpzvJzPbJ03rWpNQgHlkRslFEr7_BWHEziQtOWiOlAjbkC1d8MOjHMxO2AbHGVhl3Vony4zHnQFPjqNP6-TmjKj9FR2E-jA50dfQ"/>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-festive text-lg font-bold text-white">Barbecue &amp; Braisés de Cotonou</h4>
+<span class="text-xs bg-brand-yellow/20 text-brand-yellow px-2 py-0.5 rounded font-bold">Populaire</span>
+</div>
+<p class="text-xs text-slate-300 mb-4">Brochettes d'escargots géants, agouti mariné, poulet braisé aux épices secrètes du Sud Bénin.</p>
+<div class="flex items-center justify-between text-xs border-t border-white/10 pt-3">
+<span class="text-brand-lime font-bold">Dès 1 500 FCFA</span>
+<span class="text-slate-400">18 Stands dédiés</span>
+</div>
+</div>
+</div>
+<!-- Dish 2 -->
+<div class="bg-brand-card rounded-2xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300">
+<img alt="Plats traditionnels revisités" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIfRzMfnch11Hwi45thLZVZHP1We3kcVTp4-AyPU8gooXgQ939b6t7rQFD0k7DafAGhMLaI7ejRaCNAOVQVU1nuZZ4wwTLOxyC_IT2UPx1L-gibqahySc5uhW02KLkjbwSKyULiutXidnkda3TkhJqXbM8VVkjtY8Z79yAz3DL1XqnjX0cAlxYDRBtrxmz_jhfD96m6JPh5luzZNuDcahMK6aEqsMqMBNSNu_8srB0dNEAFZB2ZInSCQ"/>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-festive text-lg font-bold text-white">Pâte Rouge, Akassa &amp; Poissons</h4>
+<span class="text-xs bg-brand-lime/20 text-brand-lime px-2 py-0.5 rounded font-bold">Authentique</span>
+</div>
+<p class="text-xs text-slate-300 mb-4">L'âme de nos marchés : sauces gombo gluantes parfumées, crabes farcis, poissons fumés au feu de bois.</p>
+<div class="flex items-center justify-between text-xs border-t border-white/10 pt-3">
+<span class="text-brand-lime font-bold">Dès 2 000 FCFA</span>
+<span class="text-slate-400">Cuisine Héritage</span>
+</div>
+</div>
+</div>
+<!-- Dish 3 -->
+<div class="bg-brand-card rounded-2xl overflow-hidden border border-white/10 hover:border-brand-cyan/50 transition-all duration-300">
+<img alt="Cocktails et mocktails tropicaux" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsfcB9_SSF0xmqy8OGSAYM3ppsPL4np-od5uQf-_Z86SWSXdeixF5roFITfLYc4snzIm5tUhARsSBq5EuoAvLDx8X5dcqi165qwxli88hDq5WMfowPQJpo-WYLp7r6revPWk-CwacGn_PBcX_Mm0-6jn2CU5CwvPtVKvC-jHxlDaGDof8pv7d-3lLItWwW7iDCFQlu5lgAHbXMTPxEP2j8HyyWWPUnWBtm7eBTZcAwbl9V4R8oBZWDdQ"/>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-festive text-lg font-bold text-white">Bissap Fusion &amp; Mixologie</h4>
+<span class="text-xs bg-brand-cyan/20 text-brand-cyan px-2 py-0.5 rounded font-bold">Exclusivité</span>
+</div>
+<p class="text-xs text-slate-300 mb-4">Cocktails infusés à la menthe sauvage, gingembre bio pressé minute, coco fraîchement fendue et liqueurs locales.</p>
+<div class="flex items-center justify-between text-xs border-t border-white/10 pt-3">
+<span class="text-brand-lime font-bold">Dès 1 000 FCFA</span>
+<span class="text-slate-400">Happy Hours 17h-19h</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Call to Stand Exhibitors -->
+<div class="mt-12 bg-gradient-to-r from-brand-yellow/20 via-brand-navy to-brand-pink/20 p-6 rounded-2xl border border-white/20 flex flex-col sm:flex-row items-center justify-between gap-6">
+<div>
+<h4 class="font-festive text-xl text-white font-black">Vous êtes restaurateur, traiteur ou artisan de boisson ?</h4>
+<p class="text-xs text-slate-300">Les réservations de stands pour les 6 jours de festival sont ouvertes.</p>
+</div>
+<a class="whitespace-nowrap px-6 py-3 bg-brand-lime hover:bg-brand-yellow text-black font-festive font-black text-xs tracking-wider rounded-xl transition-all shadow-neonLime" href="https://wa.me/2290148759596?text=Bonjour,%20je%20souhaite%20réserver%20un%20stand%20exposant%20pour%20le%20Eat%20and%20Drink%20Festival%202027" rel="noopener noreferrer" target="_blank">
+          RÉSERVER UN STAND EXPOSANT 🎪
+        </a>
+</div>
+</div>
+</section>
+<!-- END: FoodCourtSection -->
+<!-- BEGIN: TicketingSection -->
+<!-- Billetterie officielle : Pass Jour, Pass 3 Jours, Pass VIP All-Access -->
+<section class="py-20 bg-brand-navy/80 border-t border-white/10 relative" id="billetterie">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-block bg-brand-cyan text-black font-festive text-xs font-black px-3 py-1 rounded uppercase tracking-widest mb-3">
+          Tarifs Early Bird 2027
+        </div>
+<h2 class="font-festive text-3xl sm:text-5xl font-black text-white">CHOISISSEZ VOTRE PASS FESTIVAL</h2>
+<p class="text-slate-400 text-sm mt-3">
+          Entrée garantie, accès aux concerts, aux shows culinaires et dégustations surprises. Quantités limitées au tarif de prévente.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+<!-- Ticket 1: Pass 1 Jour -->
+<div class="bg-brand-card rounded-3xl p-7 border border-white/10 hover:border-brand-yellow flex flex-col justify-between transition-all">
+<div>
+<div class="text-xs font-festive tracking-widest text-slate-400 uppercase">Accès Liberté</div>
+<h3 class="font-festive text-2xl font-black text-white mt-1">PASS 1 JOUR</h3>
+<div class="my-6">
+<span class="font-festive text-4xl font-black text-brand-yellow">2 000</span>
+<span class="text-slate-400 text-sm font-bold"> FCFA</span>
+<span class="block text-[11px] text-slate-500 mt-1">Accès au choix du 26 au 31 Janvier</span>
+</div>
+<ul class="space-y-3 text-xs text-slate-300">
+<li class="flex items-center gap-2">✓ Entrée au festival de 11h à 02h</li>
+<li class="flex items-center gap-2">✓ Accès à tous les concerts live du jour</li>
+<li class="flex items-center gap-2">✓ Accès au Food Court géant</li>
+<li class="flex items-center gap-2">✓ Participation aux votes du public</li>
+</ul>
+</div>
+<a class="mt-8 block text-center py-3 bg-white/10 hover:bg-brand-yellow hover:text-black font-festive text-xs font-black tracking-wider text-white rounded-xl transition-all" href="https://wa.me/2290148759596?text=Bonjour,%20je%20souhaite%20acheter%20un%20Pass%201%20Jour%20pour%20le%20festival" rel="noopener noreferrer" target="_blank">
+            PRENDRE MON PASS JOUR
+          </a>
+</div>
+<!-- Ticket 2: Pass Weekend / 3 Jours (Featured) -->
+<div class="bg-gradient-to-b from-brand-card to-brand-navy rounded-3xl p-8 border-2 border-brand-yellow shadow-neonYellow flex flex-col justify-between relative transform md:-translate-y-2">
+<div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-brand-yellow text-black font-festive text-xs font-black px-4 py-1 rounded-full uppercase tracking-widest shadow">
+            Le Plus Populaire 🔥
+          </div>
+<div>
+<div class="text-xs font-festive tracking-widest text-brand-lime uppercase">Weekend Intense</div>
+<h3 class="font-festive text-3xl font-black text-white mt-1">PASS 3 JOURS FEST</h3>
+<div class="my-6">
+<span class="font-festive text-5xl font-black text-brand-yellow">5 000</span>
+<span class="text-slate-400 text-sm font-bold"> FCFA</span>
+<span class="block text-[11px] text-brand-lime font-bold mt-1">Vendredi, Samedi &amp; Dimanche inclus</span>
+</div>
+<ul class="space-y-3 text-xs text-slate-200">
+<li class="flex items-center gap-2">✓ Accès prioritaire coupe-file 3 jours</li>
+<li class="flex items-center gap-2">✓ Accès Scène Principale &amp; DJ Sets</li>
+<li class="flex items-center gap-2">✓ 1 Boisson de bienvenue offerte</li>
+<li class="flex items-center gap-2">✓ Accès aux épreuves "Food Lover Challenge"</li>
+<li class="flex items-center gap-2">✓ T-shirt officiel collector festival offert</li>
+</ul>
+</div>
+<a class="mt-8 block text-center py-3.5 bg-brand-yellow hover:bg-brand-lime text-black font-festive text-sm font-black tracking-wider rounded-xl transition-all shadow-lg" href="https://wa.me/2290148759596?text=Bonjour,%20je%20souhaite%20acheter%20le%20Pass%203%20Jours%20pour%20le%20festival" rel="noopener noreferrer" target="_blank">
+            COMMANDER VIA WHATSAPP ➜
+          </a>
+</div>
+<!-- Ticket 3: Pass VIP All-Inclusive -->
+<div class="bg-brand-card rounded-3xl p-7 border border-white/10 hover:border-brand-pink flex flex-col justify-between transition-all">
+<div>
+<div class="text-xs font-festive tracking-widest text-brand-pink uppercase">Expérience Totale</div>
+<h3 class="font-festive text-2xl font-black text-white mt-1">PASS VIP 6 JOURS</h3>
+<div class="my-6">
+<span class="font-festive text-4xl font-black text-brand-pink">25 000</span>
+<span class="text-slate-400 text-sm font-bold"> FCFA</span>
+<span class="block text-[11px] text-slate-500 mt-1">Accès complet illimité du 26 au 31 Janvier</span>
+</div>
+<ul class="space-y-3 text-xs text-slate-300">
+<li class="flex items-center gap-2">✓ Accès Lounge VIP climatisé avec vue scène</li>
+<li class="flex items-center gap-2">✓ Bar lounge dédié et cocktail masterclass</li>
+<li class="flex items-center gap-2">✓ Dégustation privée Startups Challenge</li>
+<li class="flex items-center gap-2">✓ Parking VIP sécurisé garanti</li>
+<li class="flex items-center gap-2">✓ Rencontre privée avec les chefs invités</li>
+</ul>
+</div>
+<a class="mt-8 block text-center py-3 bg-brand-pink hover:bg-white hover:text-black font-festive text-xs font-black tracking-wider text-white rounded-xl transition-all" href="https://wa.me/2290195464694?text=Bonjour,%20je%20souhaite%20réserver%20un%20Pass%20VIP%206%20Jours%20Eat%20and%20Drink" rel="noopener noreferrer" target="_blank">
+            RÉSERVER PASS VIP ★
+          </a>
+</div>
+</div>
+<!-- Payment Modes accepted in Benin -->
+<div class="mt-12 text-center text-xs text-slate-400 flex flex-wrap items-center justify-center gap-6">
+<span class="font-bold text-slate-300">Paiements acceptés :</span>
+<span class="bg-black/50 px-3 py-1 rounded border border-white/10">MTN Mobile Money</span>
+<span class="bg-black/50 px-3 py-1 rounded border border-white/10">Moov Money</span>
+<span class="bg-black/50 px-3 py-1 rounded border border-white/10">Cartes Bancaires Visa &amp; Mastercard</span>
+<span class="bg-black/50 px-3 py-1 rounded border border-white/10">Paiement sur place aux guichets</span>
+</div>
+</div>
+</section>
+<!-- END: TicketingSection -->
+<!-- BEGIN: ContactFooterSection -->
+<!-- Footer complet avec logos, numéros officiels WhatsApp et réseaux -->
+<footer class="bg-black text-slate-300 pt-16 pb-12 border-t-2 border-brand-yellow" id="contact">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+<!-- Col 1: Festival Identity (5 cols) -->
+<div class="lg:col-span-5 space-y-4">
+<img alt="Eat Drink Festival Logo" class="h-16 w-auto object-contain bg-white/10 p-2 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0OnTWJgpJ3Cr_KGkGSmnEgDDzjyYjpAgquob2eIKfG8GnCOJbrfUSYUnJ7a0yTMBqS6BnOENIYsghDuPd86wpgiJgDCdMduYllbCivj4He9IQsYzSZ7eF6RYlMVXh-rwPV71IlCavma0t203y5DSECQt_K_8RBkLR_7w9OiPFns4z8gxOj8v-5FNu-S1G6VLz7aLvcswYt5lSACQp3sUsIO-4eKpGHeegt3Te6VGg-QpAOgKD04HNHMhK0q2ui8FgGy0"/>
+<p class="text-xs sm:text-sm text-slate-400 max-w-sm leading-relaxed">
+            Le festival emblématique de street food, d'art de vivre et de musique de Cotonou. Célébrons ensemble la gastronomie béninoise et africaine dans une ambiance électrisante.
+          </p>
+<div class="font-festive text-sm text-brand-yellow font-black">
+            "GOOD FOOD, GOOD PEOPLE, GOOD VIBES"
+          </div>
+</div>
+<!-- Col 2: Infolines & Hotline WhatsApp (4 cols) -->
+<div class="lg:col-span-4 space-y-3">
+<h4 class="font-festive text-sm uppercase tracking-widest text-white font-black">LIGNES D'ASSISTANCE &amp; CONTACTS</h4>
+<p class="text-xs text-slate-400">Pour réservations de stands, partenariats, billetterie ou presse :</p>
+<div class="space-y-2 pt-1">
+<a class="flex items-center gap-3 p-2.5 rounded-xl bg-white/5 hover:bg-brand-yellow hover:text-black transition-colors font-festive text-sm font-bold text-white group" href="tel:+2290148759596">
+<span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-black">📞</span>
+<span>+229 01 48 75 95 96</span>
+</a>
+<a class="flex items-center gap-3 p-2.5 rounded-xl bg-white/5 hover:bg-brand-yellow hover:text-black transition-colors font-festive text-sm font-bold text-white group" href="tel:+2290195464694">
+<span class="w-8 h-8 rounded-lg bg-brand-cyan/20 text-brand-cyan flex items-center justify-center font-black">📞</span>
+<span>+229 01 95 46 46 94</span>
+</a>
+</div>
+<div class="text-[11px] text-slate-400 pt-1">
+            📍 Cotonou, République du Bénin
+          </div>
+</div>
+<!-- Col 3: Mascotte & Date Rapide (3 cols) -->
+<div class="lg:col-span-3 flex flex-col items-center sm:items-start text-center sm:text-left bg-brand-navy p-5 rounded-2xl border border-white/10">
+<img alt="Mascotte Toucan Cotonou Food Festival" class="w-24 h-24 object-contain mb-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPVhFC4FnxuCp-SMsNv4YR0JYgJ3hTbsz5FsmXOam4ZeAm44tyZkADmbqcexcDBB1H5Ljtn_IjJuFO6ER9xXSd_NNPJbj9fS564Sw82KP87vcEgxnOJwX6e4FLe2PYFUsftlz_sME0YN67RfOsDGYk_wp7lIbn70bwy27vKsig43Hlo9ijOBXoQsLpCpnpbIEiiKU8Yw9fvZxpIC8o9Eb9eBm9DUE-ob_Xj7zNkjoVzIUQTe670uBkqcDYxfnYOwUIFCY"/>
+<span class="text-xs text-brand-lime font-festive font-black tracking-wider">SAVE THE DATE</span>
+<span class="text-lg font-festive text-white font-black">26 &gt; 31 JANVIER 2027</span>
+<span class="text-[11px] text-slate-400 mt-1">Cotonou City Food Festival</span>
+</div>
+</div>
+<!-- Bottom Credits & Legal -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+<div>
+          © 2027 <strong class="text-slate-200">EAT &amp; DRINK FESTIVAL</strong> — Tous droits réservés. Cotonou City Food Festival.
+        </div>
+<div class="flex gap-4">
+<a class="hover:text-brand-yellow transition-colors" href="#">Mentions Légales</a>
+<a class="hover:text-brand-yellow transition-colors" href="#">Règlement des Concours</a>
+<a class="hover:text-brand-yellow transition-colors" href="#">Charte Sanitaire</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: ContactFooterSection -->
+<!-- BEGIN: FloatingQuickContact -->
+<!-- Bouton flottant mobile pour accès immédiat WhatsApp -->
+<aside class="fixed bottom-6 right-6 z-50" data-purpose="floating-whatsapp">
+<a class="flex items-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-white font-festive font-black text-xs px-4 py-3 rounded-full shadow-2xl transition-all transform hover:scale-105 active:scale-95 border-2 border-white" href="https://wa.me/2290148759596" rel="noopener noreferrer" target="_blank" title="Discuter avec l'équipe du festival sur WhatsApp">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"></path></svg>
+<span class="hidden sm:inline">BILLETTERIE &amp; WHATSAPP</span>
+</a>
+</aside>
+<!-- END: FloatingQuickContact -->
+<!-- JavaScript: Countdown Timer Animation Logic -->
+<script data-purpose="countdown-logic">
+    (function initFestivalCountdown() {
+      // Date cible : 26 Janvier 2027 11:00:00 (heure locale Cotonou UTC+1)
+      const targetDate = new Date('January 26, 2027 11:00:00 GMT+0100').getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference > 0) {
+          const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+          const elDays = document.getElementById('timer-days');
+          const elHours = document.getElementById('timer-hours');
+          const elMinutes = document.getElementById('timer-minutes');
+          const elSeconds = document.getElementById('timer-seconds');
+
+          if (elDays) elDays.innerText = String(days);
+          if (elHours) elHours.innerText = String(hours).padStart(2, '0');
+          if (elMinutes) elMinutes.innerText = String(minutes).padStart(2, '0');
+          if (elSeconds) elSeconds.innerText = String(seconds).padStart(2, '0');
+        }
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+  </script>
+</body></html>
