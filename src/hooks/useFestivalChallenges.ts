@@ -41,6 +41,7 @@ const FESTIVAL_CHALLENGES_DATA: FestivalChallenge[] = [
     objective: "Révéler et entretenir une pépinière d'artistes DJ.",
     badgeTag: 'Musique & Scène',
     badgeColor: 'from-purple-600 to-pink-600',
+    imageUrl: '/days_parties_dj_logo.png',
   },
   {
     id: 'pitch-challenge',

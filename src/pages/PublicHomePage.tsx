@@ -232,14 +232,11 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
           
           {/* Main Visual Banner Container */}
           <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border-2 sm:border-4 border-white/10 shadow-2xl bg-brand-navy mb-8 sm:mb-12 group">
-            <picture>
-              <source media="(max-width: 767px)" srcSet="/toucan_logo_couleurs.jpg" />
-              <img
-                alt="Bannière Officielle EAT & DRINK FESTIVAL 8ème Édition Cotonou City 2027"
-                className="w-full h-[320px] xs:h-[360px] sm:h-[440px] lg:h-[520px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                src="/eat_drink_banner.jpg"
-              />
-            </picture>
+            <img
+              alt="Bannière Officielle EAT & DRINK FESTIVAL 8ème Édition Cotonou City 2027"
+              className="w-full h-[320px] xs:h-[360px] sm:h-[440px] lg:h-[520px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
+              src="/toucan_logo_couleurs.jpg"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-navy/20 to-transparent"></div>
 
             {/* Call to Candidates Sticker Card - Floating */}
@@ -286,11 +283,12 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                 <Sparkles size={14} /> LE PLUS GRAND FESTIVAL CULINAIRE DE COTONOU
               </div>
               <h1 className="font-festive text-3xl sm:text-6xl xl:text-7xl font-black text-white leading-[1.05] tracking-tight">
-                GOOD FOOD, <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow via-brand-orange to-brand-pink">
-                  GOOD PEOPLE,
+                  GOOD FUN,
                 </span>{" "}
                 <br />
+                GOOD FOOD, <br />
+                GOOD PEOPLE, <br />
                 GOOD VIBES.
               </h1>
               <p className="text-slate-300 text-sm sm:text-lg max-w-xl leading-relaxed">
@@ -367,7 +365,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
           <span className="mx-2">•</span>
           <span className="mx-4">DOTATION {config.prizeAmountFCFA.toLocaleString()} FCFA</span>
           <span className="mx-2">•</span>
-          <span className="mx-4">GOOD FOOD, GOOD PEOPLE, GOOD VIBES</span>
+          <span className="mx-4">GOOD FUN, GOOD FOOD, GOOD PEOPLE, GOOD VIBES</span>
           <span className="mx-2">•</span>
           <span className="mx-4">120+ RESTAURANTS & CHEFS</span>
           <span className="mx-2">•</span>
@@ -489,7 +487,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="font-festive text-3xl sm:text-4xl font-black text-white">
-              GRILLE D'ÉVALUATION DU CONCOURS
+              GRILLE D'ÉVALUATION DU CHALLENGE
             </h2>
             <p className="text-slate-400 text-sm mt-2">
               Les dossiers de candidature sont notés de manière transparente par nos jurés d'experts selon 7 critères de sélection.
@@ -570,7 +568,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                   </div>
 
                   <div className="h-32 flex flex-col justify-start">
-                    <span className="text-white font-bold block mb-1.5">Aménagement :</span>
+                    <span className="text-white font-bold block mb-1.5">Aménagements autorisés :</span>
                     <ul className="space-y-1 text-slate-300 text-[11px]">
                       <li>• 2 Salons (4 places) & 2 Tables</li>
                       <li>• 8 Places assises</li>
@@ -628,7 +626,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                   </div>
 
                   <div className="h-32 flex flex-col justify-start">
-                    <span className="text-white font-bold block mb-1.5">Aménagement :</span>
+                    <span className="text-white font-bold block mb-1.5">Aménagements autorisés :</span>
                     <ul className="space-y-1 text-slate-300 text-[11px]">
                       <li>• 5 Manges-debout</li>
                       <li>• 10 Places avec chaises hautes</li>
@@ -689,7 +687,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                   </div>
 
                   <div className="h-32 flex flex-col justify-start">
-                    <span className="text-white font-bold block mb-1.5">Aménagement :</span>
+                    <span className="text-white font-bold block mb-1.5">Aménagements autorisés :</span>
                     <ul className="space-y-1 text-slate-200 text-[11px]">
                       <li>• 3 Salons de 4 places & 3 Tables</li>
                       <li>• 12 Places assises</li>
@@ -747,7 +745,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                   </div>
 
                   <div className="h-32 flex flex-col justify-start">
-                    <span className="text-white font-bold block mb-1.5">Aménagement Grand Confort :</span>
+                    <span className="text-white font-bold block mb-1.5">Aménagements autorisés :</span>
                     <ul className="space-y-1 text-slate-300 text-[11px]">
                       <li>• 8 Salons de 4 places & 8 Tables</li>
                       <li>• 32 Places canapés / fauteuils</li>
@@ -802,7 +800,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                 Le festival emblématique de street food, d'art de vivre et d'innovation agroalimentaire de Cotonou.
               </p>
               <div className="font-festive text-xs sm:text-sm text-brand-yellow font-black tracking-wide">
-                "GOOD FOOD, GOOD PEOPLE, GOOD VIBES"
+                "GOOD FUN, GOOD FOOD, GOOD PEOPLE, GOOD VIBES"
               </div>
             </div>
 
