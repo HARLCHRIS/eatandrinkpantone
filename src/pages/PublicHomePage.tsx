@@ -284,7 +284,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
               </div>
               <h1 className="font-festive text-3xl sm:text-6xl xl:text-7xl font-black text-white leading-[1.05] tracking-tight">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow via-brand-orange to-brand-pink">
-                  GOOD FUN,
+                  GOOD FUND,
                 </span>{" "}
                 <br />
                 GOOD FOOD, <br />
@@ -365,7 +365,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
           <span className="mx-2">•</span>
           <span className="mx-4">DOTATION {config.prizeAmountFCFA.toLocaleString()} FCFA</span>
           <span className="mx-2">•</span>
-          <span className="mx-4">GOOD FUN, GOOD FOOD, GOOD PEOPLE, GOOD VIBES</span>
+          <span className="mx-4">GOOD FUND, GOOD FOOD, GOOD PEOPLE, GOOD VIBES</span>
           <span className="mx-2">•</span>
           <span className="mx-4">120+ RESTAURANTS & CHEFS</span>
           <span className="mx-2">•</span>
@@ -800,7 +800,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                 Le festival emblématique de street food, d'art de vivre et d'innovation agroalimentaire de Cotonou.
               </p>
               <div className="font-festive text-xs sm:text-sm text-brand-yellow font-black tracking-wide">
-                "GOOD FUN, GOOD FOOD, GOOD PEOPLE, GOOD VIBES"
+                "GOOD FUND, GOOD FOOD, GOOD PEOPLE, GOOD VIBES"
               </div>
             </div>
 
