@@ -283,13 +283,12 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                 <Sparkles size={14} /> LE PLUS GRAND FESTIVAL CULINAIRE DE COTONOU
               </div>
               <h1 className="font-festive text-3xl sm:text-6xl xl:text-7xl font-black text-white leading-[1.05] tracking-tight">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow via-brand-orange to-brand-pink">
-                  GOOD FUND,
-                </span>{" "}
-                <br />
                 GOOD FOOD, <br />
                 GOOD PEOPLE, <br />
-                GOOD VIBES.
+                GOOD VIBES, <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow via-brand-orange to-brand-pink">
+                  GOOD FUND.
+                </span>
               </h1>
               <p className="text-slate-300 text-sm sm:text-lg max-w-xl leading-relaxed">
                 Plongez au cœur de 6 jours d'effervescence gustative. Candidatez au Concours Agroalimentaire ({applications.length} inscrits) pour tenter de remporter la dotation de <strong className="text-brand-yellow">{config.prizeAmountFCFA.toLocaleString()} FCFA</strong> !
@@ -365,7 +364,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
           <span className="mx-2">•</span>
           <span className="mx-4">DOTATION {config.prizeAmountFCFA.toLocaleString()} FCFA</span>
           <span className="mx-2">•</span>
-          <span className="mx-4">GOOD FUND, GOOD FOOD, GOOD PEOPLE, GOOD VIBES</span>
+          <span className="mx-4">GOOD FOOD, GOOD PEOPLE, GOOD VIBES, GOOD FUND</span>
           <span className="mx-2">•</span>
           <span className="mx-4">120+ RESTAURANTS & CHEFS</span>
           <span className="mx-2">•</span>
@@ -800,7 +799,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                 Le festival emblématique de street food, d'art de vivre et d'innovation agroalimentaire de Cotonou.
               </p>
               <div className="font-festive text-xs sm:text-sm text-brand-yellow font-black tracking-wide">
-                "GOOD FUND, GOOD FOOD, GOOD PEOPLE, GOOD VIBES"
+                "GOOD FOOD, GOOD PEOPLE, GOOD VIBES, GOOD FUND"
               </div>
             </div>
 
