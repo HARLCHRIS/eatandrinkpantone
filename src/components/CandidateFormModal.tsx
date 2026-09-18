@@ -709,7 +709,7 @@ export const CandidateFormModal: React.FC<CandidateFormModalProps> = ({
                     ) : (
                       <>
                         <Upload size={16} />
-                        <span>SOUMETTRE MON DOSSIER COMPLET</span>
+                        <span>SOUMETTRE</span>
                       </>
                     )}
                   </button>
