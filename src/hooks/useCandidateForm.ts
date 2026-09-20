@@ -183,26 +183,32 @@ export const useCandidateForm = ({
 
   const submitForm = async (e: React.FormEvent, turnstileToken?: string) => {
     e.preventDefault();
+    if (loading) return;
+    setLoading(true);
     setError(null);
 
     // Contrôle strict de la présence d'au moins la photo ou la vidéo
     if (!photoFile && !videoFile && !productPhotoUrl.trim() && !videoUrl.trim()) {
       setError('Veuillez téléverser une photo du produit/activité ou ajouter une vidéo de présentation pour valider votre dossier.');
+      setLoading(false);
       return;
     }
 
     if (photoFile && photoFile.size > MAX_PHOTO_SIZE_BYTES) {
       setError('La taille de la photo ne doit pas dépasser 10 Mo.');
+      setLoading(false);
       return;
     }
 
     if (videoFile && videoFile.size > MAX_VIDEO_SIZE_BYTES) {
       setError('La taille de la vidéo ne doit pas dépasser 100 Mo.');
+      setLoading(false);
       return;
     }
 
     if (!certifiedExact || !acceptedRules) {
       setError('Vous devez certifier l\'exactitude des informations et accepter le règlement.');
+      setLoading(false);
       return;
     }
 
@@ -212,39 +218,52 @@ export const useCandidateForm = ({
       return;
     }
 
-    const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
-    const verifyRes = await fetch(
-      `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/verify-turnstile`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${anonKey}`,
-          'apikey': anonKey,
-        },
-        body: JSON.stringify({ token: turnstileToken }),
-      }
-    );
-    const verifyData = await verifyRes.json();
-    if (!verifyData.success) {
-      if (typeof window !== 'undefined' && window.turnstile) {
-        try {
-          window.turnstile.reset();
-        } catch (_e) {
-          // Ignorer si reset indisponible
+    try {
+      const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+      const verifyRes = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/verify-turnstile`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${anonKey}`,
+            'apikey': anonKey,
+          },
+          body: JSON.stringify({ token: turnstileToken }),
         }
-      }
-      setError(
-        verifyData.message ||
-          (verifyData.errorCodes && verifyData.errorCodes.length > 0
-            ? `Vérification échouée (${verifyData.errorCodes.join(', ')}). Veuillez réessayer.`
-            : 'Vérification de sécurité échouée. Le jeton a été réinitialisé, veuillez revalider le captcha.')
       );
+      const verifyData = await verifyRes.json();
+      if (!verifyData.success) {
+        if (typeof window !== 'undefined' && window.turnstile) {
+          try {
+            window.turnstile.reset();
+          } catch (_e) {
+            // Ignorer si reset indisponible
+          }
+        }
+
+        const hasTimeoutOrDuplicate =
+          (Array.isArray(verifyData.errorCodes) && verifyData.errorCodes.includes('timeout-or-duplicate')) ||
+          (typeof verifyData.message === 'string' && verifyData.message.includes('timeout-or-duplicate'));
+
+        if (hasTimeoutOrDuplicate) {
+          setError('La vérification de sécurité a expiré. Veuillez cocher à nouveau la case de vérification puis soumettre votre dossier.');
+        } else {
+          setError(
+            verifyData.message ||
+              (verifyData.errorCodes && verifyData.errorCodes.length > 0
+                ? `Vérification échouée (${verifyData.errorCodes.join(', ')}). Veuillez réessayer.`
+                : 'Vérification de sécurité échouée. Le jeton a été réinitialisé, veuillez revalider le captcha.')
+          );
+        }
+        setLoading(false);
+        return;
+      }
+    } catch (_verifyErr) {
+      setError('Erreur réseau lors de la vérification de sécurité. Veuillez réessayer.');
       setLoading(false);
       return;
     }
-
-    setLoading(true);
 
     let finalPhotoUrl = 'https://images.unsplash.com/photo-1546171753-97d7676e418b?w=800&q=80';
     let finalVideoUrl = 'https://www.youtube.com/watch?v=demo-presentation-eat-drink';

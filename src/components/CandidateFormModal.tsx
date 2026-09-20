@@ -16,6 +16,7 @@ declare global {
           callback?: (token: string) => void;
           'expired-callback'?: () => void;
           'error-callback'?: () => void;
+          'refresh-expired'?: 'auto' | 'manual' | 'never';
           theme?: 'light' | 'dark' | 'auto';
         }
       ) => string;
@@ -131,6 +132,8 @@ export const CandidateFormModal: React.FC<CandidateFormModalProps> = ({
     let intervalId: number | null = null;
     let attempts = 0;
 
+    const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAAE95xjYPMsscrmAV';
+
     const renderWidget = () => {
       if (turnstileContainerRef.current && window.turnstile) {
         if (turnstileWidgetIdRef.current) {
@@ -146,10 +149,11 @@ export const CandidateFormModal: React.FC<CandidateFormModalProps> = ({
 
         try {
           const widgetId = window.turnstile.render(turnstileContainerRef.current, {
-            sitekey: import.meta.env.VITE_TURNSTILE_SITE_KEY || '',
+            sitekey: siteKey,
             callback: (token: string) => setTurnstileToken(token),
             'expired-callback': () => setTurnstileToken(''),
             'error-callback': () => setTurnstileToken(''),
+            'refresh-expired': 'auto',
           });
           turnstileWidgetIdRef.current = widgetId;
         } catch (err) {
@@ -735,15 +739,9 @@ export const CandidateFormModal: React.FC<CandidateFormModalProps> = ({
                     )}
                   </div>
 
-                  {/* Cloudflare Turnstile Widget */}
-                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 flex justify-center min-h-[65px]">
-                    <div
-                      ref={turnstileContainerRef}
-                      className="cf-turnstile"
-                      data-sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
-                      data-callback="onTurnstileSuccess"
-                      data-expired-callback="onTurnstileExpired"
-                    ></div>
+                  {/* Cloudflare Turnstile Widget Container */}
+                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 flex justify-center items-center min-h-[65px]">
+                    <div ref={turnstileContainerRef}></div>
                   </div>
 
                   {/* Engagements & Certification */}
