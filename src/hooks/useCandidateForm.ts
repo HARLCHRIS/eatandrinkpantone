@@ -46,7 +46,7 @@ export interface UseCandidateFormReturn {
   goToStep: (targetStep: number) => void;
   nextStep: () => boolean;
   prevStep: () => void;
-  submitForm: (e: React.FormEvent) => Promise<void>;
+  submitForm: (e: React.FormEvent, turnstileToken?: string) => Promise<void>;
   resetForm: () => void;
 }
 
@@ -181,7 +181,7 @@ export const useCandidateForm = ({
     setStep((prev) => Math.max(prev - 1, 1));
   };
 
-  const submitForm = async (e: React.FormEvent) => {
+  const submitForm = async (e: React.FormEvent, turnstileToken?: string) => {
     e.preventDefault();
     setError(null);
 
@@ -206,36 +206,88 @@ export const useCandidateForm = ({
       return;
     }
 
+    if (!turnstileToken) {
+      setError('Veuillez valider la vérification de sécurité avant de soumettre.');
+      setLoading(false);
+      return;
+    }
+
+    const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+    const verifyRes = await fetch(
+      `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/verify-turnstile`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${anonKey}`,
+          'apikey': anonKey,
+        },
+        body: JSON.stringify({ token: turnstileToken }),
+      }
+    );
+    const verifyData = await verifyRes.json();
+    if (!verifyData.success) {
+      if (typeof window !== 'undefined' && window.turnstile) {
+        try {
+          window.turnstile.reset();
+        } catch (_e) {
+          // Ignorer si reset indisponible
+        }
+      }
+      setError(
+        verifyData.message ||
+          (verifyData.errorCodes && verifyData.errorCodes.length > 0
+            ? `Vérification échouée (${verifyData.errorCodes.join(', ')}). Veuillez réessayer.`
+            : 'Vérification de sécurité échouée. Le jeton a été réinitialisé, veuillez revalider le captcha.')
+      );
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
 
     let finalPhotoUrl = 'https://images.unsplash.com/photo-1546171753-97d7676e418b?w=800&q=80';
     let finalVideoUrl = 'https://www.youtube.com/watch?v=demo-presentation-eat-drink';
 
     try {
+      const uploadPromises: Promise<void>[] = [];
+
       if (photoFile) {
-        const photoExt = photoFile.name.split('.').pop();
-        const photoPath = `photos/${Date.now()}-${crypto.randomUUID()}.${photoExt}`;
-        const { error: photoError } = await supabase.storage
-          .from('submissions-media')
-          .upload(photoPath, photoFile);
-        if (photoError) throw new Error('Échec upload photo : ' + photoError.message);
-        const { data: photoUrlData } = supabase.storage
-          .from('submissions-media')
-          .getPublicUrl(photoPath);
-        finalPhotoUrl = photoUrlData.publicUrl;
+        uploadPromises.push(
+          (async () => {
+            const photoExt = photoFile.name.split('.').pop();
+            const photoPath = `photos/${Date.now()}-${crypto.randomUUID()}.${photoExt}`;
+            const { error: photoError } = await supabase.storage
+              .from('submissions-media')
+              .upload(photoPath, photoFile);
+            if (photoError) throw new Error('Échec upload photo : ' + photoError.message);
+            const { data: photoUrlData } = supabase.storage
+              .from('submissions-media')
+              .getPublicUrl(photoPath);
+            finalPhotoUrl = photoUrlData.publicUrl;
+          })()
+        );
       }
 
       if (videoFile) {
-        const videoExt = videoFile.name.split('.').pop();
-        const videoPath = `videos/${Date.now()}-${crypto.randomUUID()}.${videoExt}`;
-        const { error: videoError } = await supabase.storage
-          .from('submissions-media')
-          .upload(videoPath, videoFile);
-        if (videoError) throw new Error('Échec upload vidéo : ' + videoError.message);
-        const { data: videoUrlData } = supabase.storage
-          .from('submissions-media')
-          .getPublicUrl(videoPath);
-        finalVideoUrl = videoUrlData.publicUrl;
+        uploadPromises.push(
+          (async () => {
+            const videoExt = videoFile.name.split('.').pop();
+            const videoPath = `videos/${Date.now()}-${crypto.randomUUID()}.${videoExt}`;
+            const { error: videoError } = await supabase.storage
+              .from('submissions-media')
+              .upload(videoPath, videoFile);
+            if (videoError) throw new Error('Échec upload vidéo : ' + videoError.message);
+            const { data: videoUrlData } = supabase.storage
+              .from('submissions-media')
+              .getPublicUrl(videoPath);
+            finalVideoUrl = videoUrlData.publicUrl;
+          })()
+        );
+      }
+
+      if (uploadPromises.length > 0) {
+        await Promise.all(uploadPromises);
       }
     } catch (uploadErr) {
       setError(uploadErr instanceof Error ? uploadErr.message : 'Erreur lors du téléversement des fichiers.');

@@ -2,7 +2,28 @@ import React from 'react';
 import type { Application, CandidateStatus, ProjectCategory, ProjectStage, BudgetCategory } from '../types';
 import { useCandidateForm } from '../hooks/useCandidateForm';
 import confetti from 'canvas-confetti';
-import { X, Plus, Trash2, CheckCircle2, AlertCircle, ArrowRight, ArrowLeft, Upload, Video, Image as ImageIcon, User, Briefcase, DollarSign } from 'lucide-react';
+import { X, Plus, Trash2, CheckCircle2, AlertCircle, ArrowRight, ArrowLeft, Upload, Video, Image as ImageIcon, User, Briefcase, DollarSign, Loader2 } from 'lucide-react';
+
+declare global {
+  interface Window {
+    onTurnstileSuccess?: (token: string) => void;
+    onTurnstileExpired?: () => void;
+    turnstile?: {
+      render: (
+        container: string | HTMLElement,
+        options: {
+          sitekey: string;
+          callback?: (token: string) => void;
+          'expired-callback'?: () => void;
+          'error-callback'?: () => void;
+          theme?: 'light' | 'dark' | 'auto';
+        }
+      ) => string;
+      remove: (widgetId: string) => void;
+      reset: (widgetId?: string) => void;
+    };
+  }
+}
 
 interface CandidateFormModalProps {
   isOpen: boolean;
@@ -95,6 +116,67 @@ export const CandidateFormModal: React.FC<CandidateFormModalProps> = ({
     submitForm,
   } = useCandidateForm({ onSubmitApplication });
 
+  const [turnstileToken, setTurnstileToken] = React.useState<string>('');
+  const turnstileContainerRef = React.useRef<HTMLDivElement>(null);
+  const turnstileWidgetIdRef = React.useRef<string | null>(null);
+
+  React.useEffect(() => {
+    window.onTurnstileSuccess = (token: string) => setTurnstileToken(token);
+    window.onTurnstileExpired = () => setTurnstileToken('');
+  }, []);
+
+  React.useEffect(() => {
+    if (!isOpen || step !== 4) return;
+
+    let intervalId: number | null = null;
+    let attempts = 0;
+
+    const renderWidget = () => {
+      if (turnstileContainerRef.current && window.turnstile) {
+        if (turnstileWidgetIdRef.current) {
+          try {
+            window.turnstile.remove(turnstileWidgetIdRef.current);
+          } catch (_e) {
+            // Ignorer l'erreur d'une ancienne référence
+          }
+          turnstileWidgetIdRef.current = null;
+        }
+
+        turnstileContainerRef.current.innerHTML = '';
+
+        try {
+          const widgetId = window.turnstile.render(turnstileContainerRef.current, {
+            sitekey: import.meta.env.VITE_TURNSTILE_SITE_KEY || '',
+            callback: (token: string) => setTurnstileToken(token),
+            'expired-callback': () => setTurnstileToken(''),
+            'error-callback': () => setTurnstileToken(''),
+          });
+          turnstileWidgetIdRef.current = widgetId;
+        } catch (err) {
+          console.error('Erreur lors du rendu du widget Turnstile:', err);
+        }
+
+        if (intervalId !== null) clearInterval(intervalId);
+      } else {
+        attempts++;
+        if (attempts > 30 && intervalId !== null) {
+          clearInterval(intervalId);
+        }
+      }
+    };
+
+    const timer = setTimeout(renderWidget, 50);
+
+    if (!window.turnstile) {
+      intervalId = window.setInterval(renderWidget, 150);
+    }
+
+    return () => {
+      clearTimeout(timer);
+      if (intervalId !== null) clearInterval(intervalId);
+    };
+  }, [isOpen, step]);
+
   React.useEffect(() => {
     if (success) {
       try {
@@ -112,7 +194,7 @@ export const CandidateFormModal: React.FC<CandidateFormModalProps> = ({
   if (!isOpen) return null;
 
   const handleFormSubmit = async (e: React.FormEvent) => {
-    await submitForm(e);
+    await submitForm(e, turnstileToken);
   };
 
   /**
@@ -653,6 +735,17 @@ export const CandidateFormModal: React.FC<CandidateFormModalProps> = ({
                     )}
                   </div>
 
+                  {/* Cloudflare Turnstile Widget */}
+                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 flex justify-center min-h-[65px]">
+                    <div
+                      ref={turnstileContainerRef}
+                      className="cf-turnstile"
+                      data-sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+                      data-callback="onTurnstileSuccess"
+                      data-expired-callback="onTurnstileExpired"
+                    ></div>
+                  </div>
+
                   {/* Engagements & Certification */}
                   <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
                     <label className="flex items-start gap-3 text-xs text-slate-800 cursor-pointer font-semibold">
@@ -701,11 +794,14 @@ export const CandidateFormModal: React.FC<CandidateFormModalProps> = ({
                 ) : (
                   <button
                     type="submit"
-                    disabled={loading}
-                    className="px-8 py-3.5 bg-brand-yellow hover:bg-yellow-400 text-slate-950 font-festive font-black text-xs rounded-xl shadow-xl transition-all uppercase tracking-wider flex items-center gap-2"
+                    disabled={loading || !turnstileToken}
+                    className="px-8 py-3.5 bg-brand-yellow hover:bg-yellow-400 text-slate-950 font-festive font-black text-xs rounded-xl shadow-xl transition-all uppercase tracking-wider flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {loading ? (
-                      <span>TRANSMISSION EN COURS...</span>
+                      <span className="flex items-center gap-2">
+                        <Loader2 size={16} className="animate-spin text-slate-950" />
+                        <span>TÉLÉVERSEMENT DES FICHERS & ENVOI EN COURS...</span>
+                      </span>
                     ) : (
                       <>
                         <Upload size={16} />
