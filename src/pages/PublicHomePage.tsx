@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Application, CompetitionConfig, UserRole, FilterState } from '../types';
 import { SELECTION_CRITERIA } from '../config/appConfig';
-import { PlusCircle, Sparkles, Phone, Ticket, Menu, X, Download, FileText } from 'lucide-react';
+import { PlusCircle, Sparkles, Phone, Ticket, Menu, X } from 'lucide-react';
 import { FestivalChallengesSection } from '../components/FestivalChallengesSection';
 import { FestivalExperienceShowcase } from '../components/FestivalExperienceShowcase';
 import { StartupChallengeSummarySection } from '../components/StartupChallengeSummarySection';
