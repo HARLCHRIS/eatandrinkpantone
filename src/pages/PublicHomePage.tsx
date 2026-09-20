@@ -4,6 +4,7 @@ import { SELECTION_CRITERIA } from '../config/appConfig';
 import { PlusCircle, Sparkles, Phone, Ticket, Menu, X, Download, FileText } from 'lucide-react';
 import { FestivalChallengesSection } from '../components/FestivalChallengesSection';
 import { FestivalExperienceShowcase } from '../components/FestivalExperienceShowcase';
+import { StartupChallengeSummarySection } from '../components/StartupChallengeSummarySection';
 
 const InstagramIcon: React.FC<{ size?: number; className?: string }> = ({ size = 18, className = '' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -257,36 +258,21 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
               </button>
             </div>
 
-            {/* Download Presentation / Rules PDF Badge Button */}
-            <a
-              href="/EAD STARTUPS CHALLENGE.pdf"
-              download="EAD STARTUPS CHALLENGE.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute bottom-3 right-3 sm:bottom-8 sm:right-10 flex items-center gap-2.5 sm:gap-4 bg-black/90 hover:bg-black backdrop-blur-md p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border-2 border-brand-yellow/60 hover:border-brand-yellow shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 group/pdf cursor-pointer z-20"
-              title="Télécharger la présentation du EAT & DRINK STARTUP CHALLENGE (PDF)"
-            >
-              <div className="bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg sm:rounded-xl shadow-md flex items-center justify-center shrink-0 group-hover/pdf:scale-105 transition-transform">
+            {/* Mascot Toucan Save The Date Badge */}
+            <div className="absolute bottom-3 right-3 sm:bottom-8 sm:right-10 flex items-center gap-2 sm:gap-4 bg-black/85 backdrop-blur-md p-2 sm:p-4 rounded-xl sm:rounded-2xl border border-white/20 shadow-2xl">
+              <div className="bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg sm:rounded-xl shadow-md flex items-center justify-center shrink-0">
                 <img
                   alt="Eat & Drink Colours Logo"
                   className="h-7 sm:h-12 w-auto object-contain"
                   src="/EADCOLOURS.jpg"
                 />
               </div>
-              <div className="text-left">
-                <div className="text-[9px] sm:text-[11px] font-festive text-brand-yellow font-bold tracking-widest uppercase flex items-center gap-1">
-                  <FileText size={13} className="text-brand-yellow shrink-0" />
-                  <span>DOCUMENT OFFICIEL PDF</span>
-                </div>
-                <div className="font-festive text-xs sm:text-lg text-white font-black leading-tight group-hover/pdf:text-brand-lime transition-colors">
-                  TÉLÉCHARGER LE DOCUMENT
-                </div>
-                <div className="text-[10px] sm:text-xs text-slate-300 flex items-center gap-1.5 mt-0.5">
-                  <Download size={12} className="text-brand-lime animate-bounce" />
-                  <span>EAT & DRINK STARTUP CHALLENGE</span>
-                </div>
+              <div>
+                <div className="text-[9px] sm:text-[11px] font-festive text-brand-lime font-bold tracking-widest uppercase">ÉDITION SPÉCIALE 8</div>
+                <div className="font-festive text-xs sm:text-2xl text-white leading-tight">26 &gt; 31 JANVIER 2027</div>
+                <div className="text-[10px] sm:text-xs text-slate-300 hidden sm:block">Cotonou City • Bénin</div>
               </div>
-            </a>
+            </div>
           </div>
 
           {/* Hero Pitch & Countdown */}
@@ -387,6 +373,9 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
           <span className="mx-2">•</span>
         </div>
       </section>
+
+      {/* Eat & Drink Startups Challenge — Résumé complet */}
+      <StartupChallengeSummarySection />
 
       {/* Concept & Experience Section */}
       <section className="py-20 lg:py-28 relative" id="festivites">
