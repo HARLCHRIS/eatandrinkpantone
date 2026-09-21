@@ -674,7 +674,7 @@ export const CandidateFormModal: React.FC<CandidateFormModalProps> = ({
                   <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
                     <label className="block text-xs font-bold text-slate-900 flex items-center gap-2">
                       <ImageIcon size={18} className="text-slate-950" />
-                      <span>14. Une photo du produit ou de l'activité *</span>
+                      <span>14. Une photo du produit ou de l'activité</span>
                     </label>
                     <div className="flex flex-col sm:flex-row items-center gap-4 pt-1">
                       <label className="cursor-pointer px-5 py-3 bg-slate-950 hover:bg-slate-800 text-white rounded-xl text-xs font-black flex items-center gap-2.5 shadow-md transition-all">

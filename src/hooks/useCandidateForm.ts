@@ -155,10 +155,7 @@ export const useCandidateForm = ({
         return false;
       }
     } else if (currentStep === 4) {
-      if (!photoFile && !videoFile && !productPhotoUrl.trim() && !videoUrl.trim()) {
-        setError('Veuillez téléverser une photo du produit/activité ou une vidéo de présentation pour valider votre dossier.');
-        return false;
-      }
+      // Les fichiers médias (photo / vidéo) sont optionnels
     }
     return true;
   };
@@ -186,13 +183,6 @@ export const useCandidateForm = ({
     if (loading) return;
     setLoading(true);
     setError(null);
-
-    // Contrôle strict de la présence d'au moins la photo ou la vidéo
-    if (!photoFile && !videoFile && !productPhotoUrl.trim() && !videoUrl.trim()) {
-      setError('Veuillez téléverser une photo du produit/activité ou ajouter une vidéo de présentation pour valider votre dossier.');
-      setLoading(false);
-      return;
-    }
 
     if (photoFile && photoFile.size > MAX_PHOTO_SIZE_BYTES) {
       setError('La taille de la photo ne doit pas dépasser 10 Mo.');
@@ -265,8 +255,8 @@ export const useCandidateForm = ({
       return;
     }
 
-    let finalPhotoUrl = 'https://images.unsplash.com/photo-1546171753-97d7676e418b?w=800&q=80';
-    let finalVideoUrl = 'https://www.youtube.com/watch?v=demo-presentation-eat-drink';
+    let finalPhotoUrl = productPhotoUrl || '';
+    let finalVideoUrl = videoUrl || '';
 
     try {
       const uploadPromises: Promise<void>[] = [];
