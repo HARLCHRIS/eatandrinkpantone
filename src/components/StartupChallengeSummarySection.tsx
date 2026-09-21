@@ -36,9 +36,9 @@ const PRIZES: PrizeItem[] = [
   {
     rank: '🥉 3e Prix',
     badge: 'TROISIÈME PLACE',
-    amount: '300 000 FCFA',
-    stand: '1 Stand L Offert',
-    details: 'Lots partenaires & mise en réseau officielle',
+    amount: '1 Stand XL Offert',
+    stand: 'Lots partenaires inclus',
+    details: 'Mise en réseau officielle & opportunités d’exposition',
     borderColor: 'border-brand-orange/60 hover:border-brand-orange',
     badgeBg: 'bg-brand-orange text-slate-950',
     textColor: 'text-brand-orange',
@@ -177,8 +177,8 @@ export const StartupChallengeSummarySection: React.FC = () => {
             ))}
           </div>
 
-          <div className="p-4 bg-brand-yellow/10 border border-brand-yellow/30 rounded-2xl text-center text-xs sm:text-sm text-slate-200">
-            ✨ <strong className="text-brand-yellow">Cérémonie de remise :</strong> Les lots sont remis officiellement pendant le Eat & Drink Festival, offrant une visibilité médiatique et publique maximale aux lauréats.
+          <div className="p-4 bg-brand-yellow/10 border border-brand-yellow/30 rounded-2xl text-left text-xs sm:text-sm text-slate-200">
+            ✨ <strong className="text-brand-yellow">Cérémonie de remise :</strong> Les lots sont remis officiellement pendant le Eat & Drink Festival, offrant une visibilité médiatique et publique maximale aux partenaires et aux lauréats.
           </div>
         </div>
 
